@@ -1,0 +1,10 @@
+.platform td {
+  background-color: white;
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+}
+
+.platform td.active {
+  background-color: black;
+}
