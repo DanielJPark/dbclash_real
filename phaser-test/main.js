@@ -7,7 +7,8 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 function preload() {
 
     game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
-    game.load.image('background', 'assets/bg.png');
+    game.load.image('background', 'assets/background.png');
+    game.load.image('platform', 'assets/platform.png');
 
 
 }
@@ -26,10 +27,12 @@ function create() {
     game.time.desiredFps = 30;
 
     bg = game.add.tileSprite(0, 0, 800, 600, 'background');
+    platform = game.add.sprite(180, 400, 'platform')
+
 
     game.physics.arcade.gravity.y = 250;
 
-    player = game.add.sprite(32, 32, 'dude');
+    player = game.add.sprite(200, 32, 'dude');
     game.physics.enable(player, Phaser.Physics.ARCADE);
 
     player.body.bounce.y = 0.2;
@@ -47,7 +50,7 @@ function create() {
 
 function update() {
 
-    // game.physics.arcade.collide(player, layer);
+    // game.physics.arcade.collide(this.player, this.walls);
 
     player.body.velocity.x = 0;
 
